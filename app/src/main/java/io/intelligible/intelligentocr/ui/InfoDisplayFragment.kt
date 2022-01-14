@@ -97,8 +97,25 @@ class InfoDisplayFragment : Fragment(R.layout.fragment_info_display) {
         builder.setPositiveButton("確認") { _, _ ->
             val callIntent = Intent(Intent.ACTION_CALL)
             callIntent.data = Uri.parse("tel:$numberClean3")
-
             startActivity(callIntent)
+        }
+        builder.setCancelable(true)
+        builder.show()
+    }
+    private fun mapSearchAsk (address:String){
+        val builder: AlertDialog.Builder = AlertDialog.Builder(activity!!)
+        val downloadAlertDialog: AlertDialog = builder.create()
+        downloadAlertDialog.setCancelable(true)
+        builder.setTitle("提醒")
+            .setMessage("是否查詢${address}")
+        builder.setNegativeButton("取消") { _, _ ->
+            downloadAlertDialog.dismiss()
+        }
+        builder.setPositiveButton("確認") { _, _ ->
+            val map = "http://maps.google.co.in/maps?q=$address"
+            val maoIntent = Intent(Intent.ACTION_VIEW)
+            maoIntent.data = Uri.parse(map)
+            startActivity(maoIntent)
         }
         builder.setCancelable(true)
         builder.show()
@@ -143,6 +160,7 @@ class InfoDisplayFragment : Fragment(R.layout.fragment_info_display) {
 
                     Entity.TYPE_ADDRESS -> {
                         binding.tvaddress.append(entitiy.annotatedText)
+                        mapSearchAsk(entitiy.annotatedText)
                     }
                     Entity.TYPE_DATE_TIME -> {
                         binding.tvdate.append(entitiy.annotatedText)
