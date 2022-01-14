@@ -12,7 +12,6 @@ Medium article: https://kashif-mehmood-km.medium.com/entity-extraction-from-text
 #Note: In order to use different language you have to use cloud mlkit rather than on device ml
 
 
-https://user-images.githubusercontent.com/61690178/128365608-c988a0ee-f41b-459d-b452-74818bd9ba53.mp4
 
 
 
