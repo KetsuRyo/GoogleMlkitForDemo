@@ -80,46 +80,6 @@ class InfoDisplayFragment : Fragment(R.layout.fragment_info_display) {
 
 
     }
-    private fun phoneCallAsk (phoneNumber:String){
-        val number = phoneNumber.replace("-", "")
-        val numberClean = number.replace("(","")
-        val numberClean2 = numberClean.replace(")","")
-        val numberClean3 = numberClean2.replace(" ","")
-
-        val builder: AlertDialog.Builder = AlertDialog.Builder(activity!!)
-        val downloadAlertDialog: AlertDialog = builder.create()
-        downloadAlertDialog.setCancelable(true)
-        builder.setTitle("提醒")
-            .setMessage("是否撥打電話${numberClean3}")
-        builder.setNegativeButton("取消") { _, _ ->
-            downloadAlertDialog.dismiss()
-        }
-        builder.setPositiveButton("確認") { _, _ ->
-            val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.data = Uri.parse("tel:$numberClean3")
-            startActivity(callIntent)
-        }
-        builder.setCancelable(true)
-        builder.show()
-    }
-    private fun mapSearchAsk (address:String){
-        val builder: AlertDialog.Builder = AlertDialog.Builder(activity!!)
-        val downloadAlertDialog: AlertDialog = builder.create()
-        downloadAlertDialog.setCancelable(true)
-        builder.setTitle("提醒")
-            .setMessage("是否查詢${address}")
-        builder.setNegativeButton("取消") { _, _ ->
-            downloadAlertDialog.dismiss()
-        }
-        builder.setPositiveButton("確認") { _, _ ->
-            val map = "http://maps.google.co.in/maps?q=$address"
-            val maoIntent = Intent(Intent.ACTION_VIEW)
-            maoIntent.data = Uri.parse(map)
-            startActivity(maoIntent)
-        }
-        builder.setCancelable(true)
-        builder.show()
-    }
 
     private fun extractEntities() {
         entityExtractor
@@ -145,7 +105,7 @@ class InfoDisplayFragment : Fragment(R.layout.fragment_info_display) {
             }
             .addOnFailureListener { _ ->
                 Toast.makeText(requireContext(), "Model Download failed", Toast.LENGTH_SHORT).show()
-            }
+           }
 
     }
 
@@ -160,7 +120,6 @@ class InfoDisplayFragment : Fragment(R.layout.fragment_info_display) {
 
                     Entity.TYPE_ADDRESS -> {
                         binding.tvaddress.append(entitiy.annotatedText)
-                        mapSearchAsk(entitiy.annotatedText)
                     }
                     Entity.TYPE_DATE_TIME -> {
                         binding.tvdate.append(entitiy.annotatedText)
@@ -186,10 +145,8 @@ class InfoDisplayFragment : Fragment(R.layout.fragment_info_display) {
                     Entity.TYPE_PHONE -> {
                         if (binding.tvMobile.text.toString().isEmpty()) {
                             binding.tvMobile.setText(entitiy.annotatedText)
-                            phoneCallAsk(entitiy.annotatedText)
                         } else if (binding.tvhome.text.toString().isEmpty()) {
                             binding.tvhome.setText(entitiy.annotatedText)
-                            phoneCallAsk(entitiy.annotatedText)
                         }
                     }
                     Entity.TYPE_TRACKING_NUMBER -> {

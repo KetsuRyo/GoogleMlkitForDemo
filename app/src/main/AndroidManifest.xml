@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.intelligible.intelligentocr">
+    package="io.intelligible.intelligentocr" >
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -10,10 +10,20 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="MLKitTest"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.IntelligentOCR">
+        android:theme="@style/Theme.IntelligentOCR" >
+        <activity
+            android:name=".ui.PhoneCallActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.AddressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.MeiShiActivity"
+            android:exported="true" />
+
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="ocr" />
@@ -22,10 +32,10 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:configChanges="fontScale|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait">
-
+            android:exported="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

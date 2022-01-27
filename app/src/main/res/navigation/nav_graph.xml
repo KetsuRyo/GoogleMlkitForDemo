@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/cameraFragment">
+    app:startDestination="@id/phoneCallCameraFragment">
 
     <fragment
-        android:id="@+id/infoDisplayFragment"
-        android:name="io.intelligible.intelligentocr.ui.InfoDisplayFragment"
-        android:label="InfoDisplayFragment" >
+        android:id="@+id/phoneCallInfoDisplayFragment"
+        android:name="io.intelligible.intelligentocr.ui.PhoneCallFragment"
+        android:label="PhoneCallFragment" >
         <argument android:name="text"
             app:argType="string" />
         <argument
@@ -14,11 +14,11 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/cameraFragment"
-        android:name="io.intelligible.intelligentocr.ui.CameraFragment"
-        android:label="CameraFragment" >
+        android:id="@+id/phoneCallCameraFragment"
+        android:name="io.intelligible.intelligentocr.ui.PhoneCallCameraFragment"
+        android:label="PhoneCallCameraFragment" >
         <action
-            android:id="@+id/action_cameraFragment_to_infoDisplayFragment"
-            app:destination="@id/infoDisplayFragment" />
+            android:id="@+id/action_phoneCallCameraFragment_to_phoneCallInfoDisplayFragment"
+            app:destination="@id/phoneCallInfoDisplayFragment" />
     </fragment>
 </navigation>

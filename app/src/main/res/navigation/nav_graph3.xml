@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph3"
+    app:startDestination="@id/addressCameraFragment">
+
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="io.intelligible.intelligentocr.ui.AddressFragment"
+        android:label="AddressFragment" >
+        <argument android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="language"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressCameraFragment"
+        android:name="io.intelligible.intelligentocr.ui.AddressCameraFragment"
+        android:label="AddressCameraFragment" >
+        <action
+            android:id="@+id/action_AddressCameraFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
+</navigation>

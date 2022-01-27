@@ -29,15 +29,14 @@ import java.util.concurrent.Executors
 import kotlin.math.abs
 import   io.intelligible.intelligentocr.R
 import io.intelligible.intelligentocr.customviews.ProgressDialog
+import io.intelligible.intelligentocr.databinding.FragmentAddresscameraBinding
 import io.intelligible.intelligentocr.extensions.snack
 import kotlin.math.max
 
 import kotlin.math.min
 
 
-typealias CameraTextAnalyzerListener = (text: String) -> Unit
-typealias languageChangeListener = (language : String ) -> Unit
-class CameraFragment : Fragment(R.layout.fragment_camera) {
+class AddressCameraFragment : Fragment(R.layout.fragment_addresscamera) {
 
     private lateinit var imageCapture: ImageCapture
     private lateinit var cameraControl: CameraControl
@@ -47,10 +46,10 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         Executors.newSingleThreadExecutor()
     }
     private lateinit var progressDialog: ProgressDialog
-    lateinit var binding: FragmentCameraBinding
+    lateinit var binding: FragmentAddresscameraBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = FragmentCameraBinding.bind(view)
+        binding = FragmentAddresscameraBinding.bind(view)
 
         progressDialog = ProgressDialog(requireContext(), false)
         binding.btnchangeLanguage.setOnClickListener {
@@ -116,7 +115,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
                                 progressDialog.dismiss()
                                 findNavController().navigate(
-                                    R.id.action_cameraFragment_to_infoDisplayFragment,
+                                    R.id.action_AddressCameraFragment_to_addressFragment,
                                     Bundle().apply {
                                         putString("text", result)
                                         putString("language", currentLanguage)

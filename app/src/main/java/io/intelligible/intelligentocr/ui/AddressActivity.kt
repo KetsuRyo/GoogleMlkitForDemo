@@ -1,15 +1,16 @@
-package io.intelligible.intelligentocr
+package io.intelligible.intelligentocr.ui
 
 import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import io.intelligible.intelligentocr.R
 
-class MainActivity : AppCompatActivity() {
+class AddressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_address)
         requestAllPermissions()
     }
 

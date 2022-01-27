@@ -3,8 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_address.xml" value="0.26132246376811596" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20885416666666667" />
+        <entry key="app/src/main/res/layout/activity_meishi.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layout/activity_phonecall.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/custom_progress_dialog.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layout/fragment__phonecall_info_display.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layout/fragment_address_info_display.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layout/fragment_addresscamera.xml" value="0.26132246376811596" />
+        <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.26132246376811596" />
         <entry key="app/src/main/res/layout/fragment_info_display.xml" value="0.20885416666666667" />
+        <entry key="app/src/main/res/layout/fragment_phonecall_info_display.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/fragment_phonecallcamera.xml" value="0.26132246376811596" />
         <entry key="app/src/main/res/layout/viewholder_languages.xml" value="0.21197916666666666" />
       </map>
     </option>
